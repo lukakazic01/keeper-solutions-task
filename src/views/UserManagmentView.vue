@@ -25,6 +25,7 @@ const store = useStore();
 const data = ref(null);
 const isAddingRoleOpened = ref(false);
 const btnNewRoleText = computed(() => isAddingRoleOpened.value ? 'close' : 'create new role');
+
 (async() => {
     try{
         await store.dispatch('FetchDataFromJson');
@@ -33,9 +34,11 @@ const btnNewRoleText = computed(() => isAddingRoleOpened.value ? 'close' : 'crea
         console.log(err)
     }
 })()
+
 const setDataBackToInitialState = () => {
     store.commit('setData', data.value)
 }
+
 const closeAddNewRoleMenu = () => {
     isAddingRoleOpened.value = false
 }
