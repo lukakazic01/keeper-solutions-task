@@ -16,6 +16,7 @@ import {ref} from "vue";
 import {useStore} from "vuex";
 
 const props = defineProps(['isAddingRoleOpened'])
+const emit = defineEmits(['closeAddNewRole'])
 const roleName = ref('');
 const roleType = ref('');
 const roleDescription = ref('');
@@ -24,14 +25,15 @@ const roleEditable = ref('')
 const store = useStore();
 const addNewRole = () => {
     const newRole = {
-        name: roleName,
-        type: roleType,
-        description: roleDescription,
-        active: roleActive,
-        editable: roleEditable,
+        name: roleName.value,
+        type: roleType.value,
+        description: roleDescription.value,
+        active: roleActive.value,
+        editable: roleEditable.value,
         created_on: new Date()
     }
     store.commit('setNewRole', newRole)
+    emit('closeAddNewRole');
 }
 </script>
 

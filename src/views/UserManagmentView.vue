@@ -5,7 +5,7 @@
       <Filters :data="data"/>
     </span>
     <button class="btn-new-role" @click="isAddingRoleOpened = !isAddingRoleOpened">{{btnNewRoleText}}</button>
-    <AddNewRole :isAddingRoleOpened="isAddingRoleOpened"/>
+    <AddNewRole :isAddingRoleOpened="isAddingRoleOpened" @close-add-new-role="closeAddNewRoleMenu"/>
   <div class="role-container">
     <div v-for="role in store.state.data" class="role">
         <UserCard :role="role" ></UserCard>
@@ -35,6 +35,9 @@ const btnNewRoleText = computed(() => isAddingRoleOpened.value ? 'close' : 'crea
 })()
 const setDataBackToInitialState = () => {
     store.commit('setData', data.value)
+}
+const closeAddNewRoleMenu = () => {
+    isAddingRoleOpened.value = false
 }
 </script>
 
