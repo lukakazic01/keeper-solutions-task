@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import App from "../App.vue";
-import UserManagmentView from "../views/UserManagmentView.vue";
+import UserManagementView from "../views/UserManagementView.vue";
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -8,7 +7,7 @@ const router = createRouter({
             path: '/',
             name: 'home',
             alias: '/home',
-            component: UserManagmentView
+            component: UserManagementView
         }
     ]
 })
